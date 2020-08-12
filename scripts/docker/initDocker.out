@@ -1,0 +1,50 @@
+user@hostname:~$ docker pull mongo:3.6
+3.6: Pulling from library/mongo
+7b378fa0f908: Pull complete 
+4d77b1b29f2e: Pull complete 
+7c793be88bae: Pull complete 
+ecc05c8a19c0: Pull complete 
+e94562b188f3: Pull complete 
+006d818b06b0: Pull complete 
+39c90f20ca83: Pull complete 
+0eecb12b08f4: Pull complete 
+f47cbb1ec754: Pull complete 
+1a87ed0237df: Pull complete 
+374abc24cac1: Pull complete 
+e04946784f1e: Pull complete 
+476068d5a498: Pull complete 
+Digest: sha256:c9119db725630a4a71009b11ab0e690540ff8cfdf5179842e343d7635fd15070
+Status: Downloaded newer image for mongo:3.6
+docker.io/library/mongo:3.6
+user@hostname:~$ docker run --name mongo -d -v /data:/data/db mongo:3.6
+05649cd99c9442c26bdbca09e335048b92657deab7c0b671cddcce5b83a14b2d
+user@hostname:~$ docker ls
+docker: 'ls' is not a docker command.
+See 'docker --help'
+user@hostname:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+05649cd99c94        mongo:3.6           "docker-entrypoint.s…"   5 seconds ago       Up 5 seconds        27017/tcp           mongo
+user@hostname:~$ docker run -it --name mongo-test --link mongo:mongo mongo:3.6 /bin/bash
+root@4324fbc21461:/# ls
+bin   data  docker-entrypoint-initdb.d  home        lib    media  opt   root  sbin  sys  usr
+boot  dev   etc                         js-yaml.js  lib64  mnt    proc  run   srv   tmp  var
+root@4324fbc21461:/# echo $MONGO_PORT_27017_TCP_ADDR
+172.17.0.2
+root@4324fbc21461:/# echo $MONGO_PORT_27017_TCP_PORT
+27017
+root@4324fbc21461:/# mongo $MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT
+MongoDB shell version v3.6.19
+connecting to: mongodb://172.17.0.2:27017/test?gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("c0ec1a17-6597-46f0-a68e-1021905ee7f7") }
+MongoDB server version: 3.6.19
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	http://docs.mongodb.org/
+Questions? Try the support group
+	http://groups.google.com/group/mongodb-user
+Server has startup warnings: 
+2020-08-09T06:37:12.897+0000 I CONTROL  [initandlisten] 
+2020-08-09T06:37:12.897+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-08-09T06:37:12.897+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-08-09T06:37:12.897+0000 I CONTROL  [initandlisten] 
