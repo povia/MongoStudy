@@ -20,8 +20,6 @@ class MongoExampleApplicationTests {
 	
 	@Test
 	void contextLoads() {
-		getCollectionObjects();
-//		insertTest();
 	}
 	
 	@Test
@@ -34,11 +32,13 @@ class MongoExampleApplicationTests {
 		System.out.println("Test Ended with " + list.size() + " records");
 	}
 	
-//	@Test
-//	private void insertTest() {
-//		UsersDoc testDoc = new UsersDoc();
-//		testDoc.setUsername("lebron");
-//		testDoc.setCountry("US");
-//		repo.insert(testDoc);
-//	}
+	@Test
+	private void insertTest() {
+		System.out.println("Insert Test Start");
+		UsersDoc testDoc = new UsersDoc();
+		testDoc.setLast_name("jones");
+		testDoc.setAge(40);
+		UsersDoc result =repo.insert(testDoc);
+		System.out.println("Insert Test Ended with " + result.toString());
+	}
 }
