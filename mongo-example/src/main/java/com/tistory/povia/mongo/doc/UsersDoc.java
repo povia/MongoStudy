@@ -18,4 +18,5 @@ public class UsersDoc {
 	private @Field String last_name;
 	private @Field int age;
 	private @Field String city;
+	
 }

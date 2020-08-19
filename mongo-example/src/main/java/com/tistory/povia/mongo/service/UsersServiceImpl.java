@@ -24,6 +24,34 @@ public class UsersServiceImpl implements UsersService{
 	public List<UsersDoc> findByName(String name) {
 		return repo.findByLastName(name);
 	}
+	
+	public List<UsersDoc> search(String name, int from, int to){
+		if(!name.equals("")) {
+			if(from==0 && to==0) {
+				return findByName(name);
+			} else { 
+				if(to==0) {
+					return repo.findByNameAndAgeFrom(name,from);
+				}else if(from==0) {
+					return repo.findByNameAndAgeTo(name, to);
+				}else {
+					return repo.search(name, from, to);
+				}
+			}
+		} else {
+			if(from==0 && to==0) {
+				return null;
+			} else { 
+				if(to==0) {
+					return repo.findByAgeFrom(from);
+				}else if(from==0) {
+					return repo.findByAgeTo(to);
+				}else {
+					return findByAgeBetween(from, to);
+				}
+			}
+		}
+	}
 
 	@Override
 	public UsersDoc insertData(String last_name, int age, String city) {
@@ -48,6 +76,11 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	public long delete(String id) {
 		return repo.custDelete(id);
+	}
+
+	@Override
+	public List<UsersDoc> findByAgeBetween(int from, int to) {
+		return repo.findByAgeBetween(from, to);
 	}
 
 //	@Override

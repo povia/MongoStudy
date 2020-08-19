@@ -3,6 +3,7 @@ package com.tistory.povia.mongo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tistory.povia.mongo.doc.UsersDoc;
 import com.tistory.povia.mongo.service.UsersService;
+
+import ch.qos.logback.classic.Logger;
 
 @RestController
 public class UsersController {
@@ -24,10 +27,19 @@ public class UsersController {
 		return service.findAll();
 	}
 	
+//	@RequestMapping("/api/users/search")
+//	@GetMapping
+//	public List<UsersDoc> getUsersByName(@RequestParam(value="last_name") String name) {
+//		return service.findByName(name);
+//	}
+	
 	@RequestMapping("/api/users/search")
 	@GetMapping
-	public List<UsersDoc> getUsersByName(@RequestParam(value="last_name") String name) {
-		return service.findByName(name);
+	public List<UsersDoc> search(@RequestParam(value = "last_name", required = false, defaultValue="") String name,
+			@RequestParam(value = "from", required = false, defaultValue="0") int from,
+			@RequestParam(value = "to", required = false, defaultValue="0") int to) {
+		
+		return service.search(name,from,to);
 	}
 	
 	@RequestMapping("/api/users/search/reg")
