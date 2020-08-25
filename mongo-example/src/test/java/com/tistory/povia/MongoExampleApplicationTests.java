@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.tistory.povia.mongo.doc.UsersDoc;
-import com.tistory.povia.mongo.repo.UsersRepo;
+import com.tistory.povia.users.doc.UsersDoc;
+import com.tistory.povia.users.repo.UsersRepo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

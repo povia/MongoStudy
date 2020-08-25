@@ -1,4 +1,4 @@
-package com.tistory.povia.mongo.repo;
+package com.tistory.povia.users.repo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.query.Update;
 
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.tistory.povia.mongo.doc.UsersDoc;
+import com.tistory.povia.users.doc.UsersDoc;
 
 import org.springframework.data.mongodb.core.query.Query;
 

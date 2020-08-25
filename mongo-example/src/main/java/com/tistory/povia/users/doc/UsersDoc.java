@@ -1,4 +1,4 @@
-package com.tistory.povia.mongo.doc;
+package com.tistory.povia.users.doc;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

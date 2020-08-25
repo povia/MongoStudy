@@ -1,4 +1,4 @@
-package com.tistory.povia.mongo.controller;
+package com.tistory.povia.users.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tistory.povia.mongo.doc.UsersDoc;
-import com.tistory.povia.mongo.service.UsersService;
+import com.tistory.povia.users.doc.UsersDoc;
+import com.tistory.povia.users.service.UsersService;
 
 import ch.qos.logback.classic.Logger;
 

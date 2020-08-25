@@ -1,11 +1,11 @@
-package com.tistory.povia.mongo.repo;
+package com.tistory.povia.users.repo;
 
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import com.tistory.povia.mongo.doc.UsersDoc;
+import com.tistory.povia.users.doc.UsersDoc;
 
 public interface UsersRepo extends MongoRepository<UsersDoc, String>, UsersRepoCustom{
 	

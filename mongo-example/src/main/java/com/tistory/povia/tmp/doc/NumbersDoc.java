@@ -1,4 +1,4 @@
-package com.tistory.povia.mongo.doc;
+package com.tistory.povia.tmp.doc;
 
 import lombok.Data;
 

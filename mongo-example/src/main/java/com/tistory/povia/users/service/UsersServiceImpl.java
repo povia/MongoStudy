@@ -1,4 +1,4 @@
-package com.tistory.povia.mongo.service;
+package com.tistory.povia.users.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tistory.povia.mongo.doc.UsersDoc;
-import com.tistory.povia.mongo.repo.UsersRepo;
+import com.tistory.povia.users.doc.UsersDoc;
+import com.tistory.povia.users.repo.UsersRepo;
 
 @Service
 public class UsersServiceImpl implements UsersService{

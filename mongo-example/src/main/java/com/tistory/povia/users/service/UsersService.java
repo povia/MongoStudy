@@ -1,8 +1,8 @@
-package com.tistory.povia.mongo.service;
+package com.tistory.povia.users.service;
 
 import java.util.List;
 
-import com.tistory.povia.mongo.doc.UsersDoc;
+import com.tistory.povia.users.doc.UsersDoc;
 
 public interface UsersService {
 	public List<UsersDoc> findAll();
