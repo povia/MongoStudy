@@ -1,0 +1,41 @@
+#Markdown으로 변경할 예정입니다
+4. 도큐먼트 지향 데이터
+	MongoDB가 스키마를 강제하지는 않음, But 모든 App은 데이터 저장/사용에 대한 기본적인 내부 기준 필요
+	전자상거래 스키마 설계를 통해 RDBMS와 MongoDB의 차이를 확인함
+	
+	
+
+
+6. 집계
+Aggregation Framework
+고급 쿼리 언어, 여러 Document의 데이터를 변환, 결합 -> 새로운 정보 생성
+Example) 월별 매출, 제품별 매출, 사용자별 주문 합계 => SQL에서는 Group by, Join 등을 통해 얻는 결과들
+
+6.1 집계 프레임워크 개요
+집계 파이프라인 : 입력 도큐먼트 -> 출력 도큐먼트 사이의 작업들을 통칭(작업 1의 Output이 작업 2의 Input이 됨)
+세부 작업 목록
+$project 출력 도큐먼트 상에 배치할 필드 지정(projected)
+$match 처리될 도큐먼트 선택. find()와 유사
+$limit 갯수 제한
+$skip 건너 뛰는 갯수 선택
+$unwind 배열의 확장(join)
+$group 그룹화(group by)
+$sort 정렬(order by)
+$geoNear 지리 공간위치 근처 도큐먼트 선택
+$out 결과를 컬렉션에 삽입
+$redact 특정 데이터에 대한 접근 제어
+
+Aggregation 예시
+db.products.aggregate([ {$match: ...}, {$group: ...}, {$sort: ...}] )
+aggregation method 내의 {} 괄호 순서대로 작업이 수행됨
+Input은 products 
+
+
+SQL 명령어	집계 프레임워크 연산자
+SELECT		$project
+			$group 함수 : $sum, $min, $avg 등
+FROM		db.collectionName.aggregate(...)
+JOIN		$unwind
+WHERE		$match
+GROUP BY	$group
+HAVING		$match
