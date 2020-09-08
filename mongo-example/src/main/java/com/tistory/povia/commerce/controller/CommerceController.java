@@ -3,6 +3,8 @@ package com.tistory.povia.commerce.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +23,10 @@ public class CommerceController {
 	@GetMapping
 	public List<ProductDoc> getProducts(){
 		return productService.findAll();
+	}
+	
+	@PutMapping
+	public ProductDoc insert(@RequestBody ProductDoc productDoc) {
+		return productService.findAll().get(1);
 	}
 }

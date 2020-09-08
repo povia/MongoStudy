@@ -9,5 +9,4 @@ import com.tistory.povia.commerce.doc.ProductDoc;
 public interface ProductRepo extends MongoRepository<ProductDoc, String>{
 	List<ProductDoc> findAll();
 	
-	
 }
