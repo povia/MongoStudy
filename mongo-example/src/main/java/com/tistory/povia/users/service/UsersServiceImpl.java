@@ -64,7 +64,6 @@ public class UsersServiceImpl implements UsersService{
 
 	@Override
 	public List<UsersDoc> findByRegExName(String name) {
-		// TODO Auto-generated method stub
 		return repo.findByRegExName(name);
 	}
 	
